@@ -39,6 +39,30 @@ A full-stack URL shortener application with user authentication, custom short UR
 
 ---
 
+## Screenshots
+
+### Home Page
+
+![App Screenshot](Screenshot%202025-08-26%20171548.png)
+
+### Login Pge
+
+![App Screenshot](Screenshot%202025-08-26%20171634.png)
+
+### User Dashboard
+
+![App Screenshot](Screenshot%202025-08-26%20171653.png)
+
+### Home Page after user logins
+
+#### can give custom url:
+
+![App Screenshot](Screenshot%202025-08-26%20171710.png)
+
+### Mobile View
+
+![App Screenshot](Screenshot%202025-08-26%20171758.png)
+
 ## API Endpoints
 
 ### Auth
