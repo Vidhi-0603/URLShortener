@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+backend/.env
+
+# VS Code settings
+.vscode/
+
+# Build output
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Frontend specific (if using React/Angular/Vue)
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+#
