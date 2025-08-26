@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment files
+Backend/node_modules/
 Backend/.env
 
 # VS Code settings
@@ -23,7 +24,6 @@ logs/
 Thumbs.db
 
 # Frontend specific (if using React/Angular/Vue)
-frontend/node_modules/
-frontend/build/
-frontend/dist/
+Frontend/node_modules/
+
 
