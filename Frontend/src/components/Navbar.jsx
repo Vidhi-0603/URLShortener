@@ -36,7 +36,7 @@ export default function Navbar() {
               to="/"
               className="w-8 h-8 text-indigo-600 mr-2 text-xl font-bold"
             >
-              URL Shortener
+              ShortiFy - URL Shortener 
             </Link>
           </div>
 
