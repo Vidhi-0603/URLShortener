@@ -8,7 +8,7 @@ export const AuthOnReload = async (store) => {
       store.dispatch(loginSuccess({ user })); // mark logged in
     }
   } catch (err) {
-    console.log(err);;  
+    console.log(err);
     store.dispatch(logout()); // not logged in
   }
 };

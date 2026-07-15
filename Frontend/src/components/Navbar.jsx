@@ -16,11 +16,6 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  // const toggleAuth = () => {
-  //   setIsLoggedIn(!isLoggedIn);
-  //   setIsOpen(false); // Close mobile menu after action
-  //   };
     
   const handleLogout = async () => {
     dispatch(logout());

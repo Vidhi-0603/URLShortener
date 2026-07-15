@@ -1,5 +1,5 @@
 import { cookieOptions } from "../config/jwtToken.config.js";
-import { registerUser, loginUuser } from "../services/auth.service.js";
+import { registerUser, loginUser } from "../services/auth.service.js";
 import wrapAsync from "../utils/tryCatchWrapper.js";
 
 export const register_user = wrapAsync( async (req, res) => {
@@ -12,7 +12,7 @@ export const register_user = wrapAsync( async (req, res) => {
 
 export const login_user = wrapAsync( async (req, res) => {
     const { email, password } = req.body;
-    const {token, user} = await loginUuser(email, password);
+    const {token, user} = await loginUser(email, password);
     req.user = user;
     res.cookie("accessToken", token, cookieOptions);
     res.status(200).json({ message: 'User login successfull',user: user});

@@ -19,7 +19,6 @@ const ShortUrl = () => {
       );
 
       setShortUrl(short_url);
-      // queryClient.invalidateQueries({ queryKey: ["userUrls"] });
       setError(null);
     } catch (err) {
       setError(err.message);
@@ -86,14 +85,12 @@ const ShortUrl = () => {
               }}
               placeholder="custom url text e.g.: mycustomUrl"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
-              // onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)}
             />
           </div>
         )}
 
         <button
           onClick={handleSubmit}
-          //   disabled={isLoading || !url.trim()}
           className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-medium py-3 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           {" "}

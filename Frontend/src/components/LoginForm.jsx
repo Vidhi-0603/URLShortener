@@ -45,13 +45,12 @@ export const LoginForm = ({ state }) => {
 
     try {
       const data = await loginUser(email, password);
-      console.log(data,"login done");
       dispatch(loginSuccess({ user: data.user}));
       navigate({ to: "/dashboard" });
       setLoading(false);
     } catch (err) {
       setLoading(false);
-      setLoginError(err.message || "Login failed. Please check your credentials.");
+      setLoginError("Login failed. Please check your credentials.");
     }
   };
 

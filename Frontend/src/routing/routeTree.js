@@ -3,9 +3,10 @@ import App from '../App'
 import { authRoute } from './auth.route.js'
 import { dashboardRoute } from './dashboard.route.js'
 import { homepageRoute } from './homepage.route.js'
+import { redirectURL } from './redirectURL.js'
 
 export const rootRoute = createRootRoute({
   component: App,
 })
 
-export const routeTree = rootRoute.addChildren([authRoute, dashboardRoute, homepageRoute])
+export const routeTree = rootRoute.addChildren([authRoute, dashboardRoute, homepageRoute, redirectURL])

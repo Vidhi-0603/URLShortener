@@ -26,7 +26,6 @@ export const RegisterForm = ({ state }) => {
 
     try {
       const data = await registerUser(name, email, password);
-      console.log(data, "register done");
       dispatch(loginSuccess({ user: data.user}));
       navigate({ to: "/dashboard" });
       setLoading(false);

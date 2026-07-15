@@ -15,43 +15,8 @@ const URLDashboard = () => {
     refetchInterval: 30000, // Refetch every 30 seconds to update click counts
     staleTime: 0, // Consider data stale immediately so it refetches when invalidated
   });
-    
-    console.log({ urls });
 
   const [copiedId, setCopiedId] = useState(null);
-
-  // Sample data - in a real app this would come from an API or props
-//   const [urls] = useState([
-//     {
-//       id: 1,
-//       originalUrl:
-//         "https://www.example.com/very-long-url-that-needs-shortening",
-//       shortUrl: "https://short.ly/abc123",
-//       createdAt: "2024-08-20",
-//       clicks: 245,
-//     },
-//     {
-//       id: 2,
-//       originalUrl: "https://github.com/user/repository/blob/main/readme.md",
-//       shortUrl: "https://short.ly/xyz789",
-//       createdAt: "2024-08-19",
-//       clicks: 89,
-//     },
-//     {
-//       id: 3,
-//       originalUrl: "https://docs.google.com/document/d/1234567890/edit",
-//       shortUrl: "https://short.ly/doc456",
-//       createdAt: "2024-08-18",
-//       clicks: 156,
-//     },
-//     {
-//       id: 4,
-//       originalUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-//       shortUrl: "https://short.ly/yt999",
-//       createdAt: "2024-08-17",
-//       clicks: 1337,
-//     },
-//   ]);
 
   const copyToClipboard = async (text, id, type) => {
     try {
@@ -61,47 +26,46 @@ const URLDashboard = () => {
     } catch (err) {
       console.error("Failed to copy:", err);
     }
-    };
-    
-    if (isLoading) {
-      return (
-        <div className="flex justify-center my-8">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-        </div>
-      );
-    }
+  };
 
-    if (isError) {
-      return (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded my-4">
-          Error loading your URLs: {error.message}
-        </div>
-      );
-    }
+  if (isLoading) {
+    return (
+      <div className="flex justify-center my-8">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
 
-    if (!urls.urls || urls.urls.length === 0) {
-      return (
-        <div className="text-center text-gray-500 my-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-          <svg
-            className="w-12 h-12 mx-auto text-gray-400 mb-3"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 10V3L4 14h7v7l9-11h-7z"
-            ></path>
-          </svg>
-          <p className="text-lg font-medium">No URLs found</p>
-          <p className="mt-1">You haven't created any shortened URLs yet.</p>
-        </div>
-      );
-    }
+  if (isError) {
+    return (
+      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded my-4">
+        Error loading your URLs: {error.message}
+      </div>
+    );
+  }
 
+  if (!urls.urls || urls.urls.length === 0) {
+    return (
+      <div className="text-center text-gray-500 my-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <svg
+          className="w-12 h-12 mx-auto text-gray-400 mb-3"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          ></path>
+        </svg>
+        <p className="text-lg font-medium">No URLs found</p>
+        <p className="mt-1">You haven't created any shortened URLs yet.</p>
+      </div>
+    );
+  }
 
   const truncateUrl = (url, maxLength = 40) => {
     return url.length > maxLength ? url.substring(0, maxLength) + "..." : url;
@@ -172,14 +136,14 @@ const URLDashboard = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-blue-600 font-mono text-sm hover:underline cursor-pointer">
-                        {`http://localhost:3000/${url.short_url}`}
+                        {`${import.meta.env.VITE_FRONTEND_URL}/${url.short_url}`}
                       </span>
                       <button
                         onClick={() =>
                           copyToClipboard(
-                            `http://localhost:3000/${url.short_url}`,
+                            `${import.meta.env.VITE_FRONTEND_URL}/${url.short_url}`,
                             url._id,
-                            "short"
+                            "short",
                           )
                         }
                         className="p-1 hover:bg-gray-200 rounded transition-colors flex-shrink-0"
@@ -228,7 +192,7 @@ const URLDashboard = () => {
                       copyToClipboard(
                         `http://localhost:3000/${url.short_url}`,
                         url._id,
-                        "short-btn"
+                        "short-btn",
                       )
                     }
                     className="px-3 py-2 text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg transition-colors flex items-center gap-2 flex-1 lg:flex-none justify-center"
