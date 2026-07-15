@@ -34,8 +34,9 @@ app.use('/api/user', userRoutes);
 app.get('/api/resolve/:id', redirectFromShortUrl)
 
 app.use(errorHandler);
+const port = process.env.PORT || 5000;
 
-app.listen(5000, () => {
+app.listen(port, () => {
     connectDb()
-    console.log("Server running at http://localhost:5000");
+    console.log(`Server running on port: ${port}`);
 })
