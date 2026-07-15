@@ -191,7 +191,7 @@ Visit `http://localhost:5173`
 
 ---
 
-## Docker Setup (Refer to [[Dockerized URLShortener](https://github.com/Vidhi-0603/URLShortenerDemo)] Repository)
+## Docker Setup (Refer to [Dockerized URLShortener](https://github.com/Vidhi-0603/URLShortenerDemo) Repository)
 
 ### Build and run with Docker Compose
 
